@@ -15,11 +15,6 @@ const (
 	defaultVersion = "v1"
 )
 
-// Hello returns a hello world string
-func Hello() string {
-	return "Hello Sleeper"
-}
-
 // Client is the API client
 type Client struct {
 	// Base url for API requests
