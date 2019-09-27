@@ -12,7 +12,7 @@ type StatsService struct {
 // GetAllStats gets all stats
 func (statsService *StatsService) GetAllStats(sport, seasonType, season string) (*ObjectResponse, error) {
 	path := fmt.Sprintf("stats/%s/%s/%s", sport, seasonType, season)
-	req, err := statsService.client.newRequest("GET", path, nil)
+	req, err := statsService.client.newRequest("GET", path)
 
 	if err != nil {
 		return nil, err
@@ -25,7 +25,7 @@ func (statsService *StatsService) GetAllStats(sport, seasonType, season string) 
 // GetStatsForWeek gets stats for a given week
 func (statsService *StatsService) GetStatsForWeek(sport, seasonType, season, week string) (*ObjectResponse, error) {
 	path := fmt.Sprintf("stats/%s/%s/%s/%s", sport, seasonType, season, week)
-	req, err := statsService.client.newRequest("GET", path, nil)
+	req, err := statsService.client.newRequest("GET", path)
 
 	if err != nil {
 		return nil, err
@@ -38,7 +38,7 @@ func (statsService *StatsService) GetStatsForWeek(sport, seasonType, season, wee
 // GetAllProjections gets all stats
 func (statsService *StatsService) GetAllProjections(sport, seasonType, season string) (*ObjectResponse, error) {
 	path := fmt.Sprintf("projections/%s/%s/%s", sport, seasonType, season)
-	req, err := statsService.client.newRequest("GET", path, nil)
+	req, err := statsService.client.newRequest("GET", path)
 
 	if err != nil {
 		return nil, err
@@ -51,7 +51,7 @@ func (statsService *StatsService) GetAllProjections(sport, seasonType, season st
 // GetProjectionsForWeek gets stats for a given week
 func (statsService *StatsService) GetProjectionsForWeek(sport, seasonType, season, week string) (*ObjectResponse, error) {
 	path := fmt.Sprintf("projections/%s/%s/%s/%s", sport, seasonType, season, week)
-	req, err := statsService.client.newRequest("GET", path, nil)
+	req, err := statsService.client.newRequest("GET", path)
 
 	if err != nil {
 		return nil, err

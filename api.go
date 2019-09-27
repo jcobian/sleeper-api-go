@@ -2,7 +2,6 @@
 package sleeper
 
 import (
-	"bytes"
 	"encoding/json"
 	"fmt"
 	"io"
@@ -40,23 +39,13 @@ func NewAPIClient(httpClient *http.Client) *Client {
 	return client
 }
 
-func (client *Client) newRequest(method, path string, body interface{}) (*http.Request, error) {
+func (client *Client) newRequest(method, path string) (*http.Request, error) {
 	rel := &url.URL{Path: fmt.Sprintf("/%s/%s", defaultVersion, path)}
 	u := client.BaseURL.ResolveReference(rel)
 	var buf io.ReadWriter
-	if body != nil {
-		buf = new(bytes.Buffer)
-		err := json.NewEncoder(buf).Encode(body)
-		if err != nil {
-			return nil, err
-		}
-	}
 	req, err := http.NewRequest(method, u.String(), buf)
 	if err != nil {
 		return nil, err
-	}
-	if body != nil {
-		req.Header.Set("Content-Type", "application/json")
 	}
 	req.Header.Set("Accept", "application/json")
 	return req, nil
