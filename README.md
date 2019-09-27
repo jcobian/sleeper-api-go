@@ -25,5 +25,5 @@ For example:
 
 ```go
 resp, err := client.Stats.GetAllStats("nfl", "regular", "2019")
-statsForPlayer := resp.Body['5065'] // pick any key here in the response, these are player IDs. This is a map of this player's stats
+statsForPlayer := resp.Body["5065"] // pick any key here in the response, these are player IDs. This is a map of this player's stats
 ```
