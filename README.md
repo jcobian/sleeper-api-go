@@ -14,5 +14,6 @@ import "github.com/jcobian/sleeper-api-go"
 ### TL;DR
 ```go
 client := sleeper.NewAPIClient(nil)
-resp, err := client.Stats.Get("nfl", "regular", "2019")
+resp, err := client.Stats.GetAllStats("nfl", "regular", "2019")
+// resp.Body, resp.StatusCode
 ```
